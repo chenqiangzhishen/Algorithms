@@ -12,7 +12,7 @@ void shellInsert(int *data, int n, int dt)
     {
         int temp = data[i];
         int j = i;
-        while(temp<data[j-dt] && j-dt>0)//attation that index should be out of the arrange of an Array.
+        while(temp<data[j-dt] && j-dt>=0)//attation that index should be out of the arrange of an Array.
         {
             data[j] = data[j-dt];
             j -= dt;
