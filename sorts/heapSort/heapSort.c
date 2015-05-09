@@ -6,9 +6,9 @@ void adjustHeap(int data[], int beg, int end)
         return;
     int i=0;
     int temp = data[beg];
-    for(i=2*beg; i<end; i*=2)//note the index
+    for(i=2*beg; i<=end; i*=2)//note the index
     {
-        if(i<end && data[i]<data[i+1])//if right child bigger than left, then point to right child.
+        if(i+1<=end && data[i]<data[i+1])//if right child bigger than left, then point to right child.
             ++i;
         if(temp >= data[i])//if parent bigger than childen, keep bigger.
             break;
