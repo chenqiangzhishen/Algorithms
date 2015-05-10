@@ -6,7 +6,7 @@ void adjustHeap(int data[], int beg, int end)
         return;
     int i=0;
     int temp = data[beg];
-    for(i=2*beg; i<=end; i*=2)//note the index
+    for(i=2*beg+1; i<=end; i*=2)//note the index
     {
         if(i+1<=end && data[i]<data[i+1])//if right child bigger than left, then point to right child.
             ++i;
@@ -39,7 +39,7 @@ void heapSort(int data[], int length)
 int main(void)
 {
     int i = 0;
-    int data[] = {4, 1, 3, 6, 8, 9, 7, 2, 5, 10};
+	int data[] = {1,7, 4, 6, 3, 5, 2};
     int length = sizeof(data)/sizeof(data[0]);
     printf("before sorting the data is :");
     for(i=0; i<length; ++i)

@@ -3,15 +3,16 @@ def adjustHeap(dataList, beg, end):
 	if len(dataList)==0 or beg >=end:
 		return
 	temp = dataList[beg]
-	i = 2 * beg
+	i = 2*beg + 1
 	while i<=end:
 		if i+1<=end and dataList[i]<dataList[i+1]:
 			++i
-		if(temp >= dataList[i]):
+		if(temp < dataList[i]):
+			dataList[beg] = dataList[i]
+			beg = i
+			i *= 2
+		else: 
 			break
-		dataList[beg] = dataList[i]
-		beg = i
-		i *= 2
 	dataList[beg] = temp
 
 def heapSort(dataList, length):
@@ -25,11 +26,11 @@ def heapSort(dataList, length):
 		adjustHeap(dataList, 0, i-1)
 
 def main():
-	data = [1,7, 4, 6, 3, 5, 2]
+	data = [1, 4, 6, 3, 5, 2]
 	print "the original data is:"
 	print data
 	print "after sorting data is:"
-	heapSort(data, 7)
+	heapSort(data, 6)
 	print data
 
 
