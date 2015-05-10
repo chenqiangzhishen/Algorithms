@@ -39,7 +39,7 @@ void heapSort(int data[], int length)
 int main(void)
 {
     int i = 0;
-	int data[] = {1,7, 4, 6, 3, 5, 2};
+	int data[] = {1,7, 4};
     int length = sizeof(data)/sizeof(data[0]);
     printf("before sorting the data is :");
     for(i=0; i<length; ++i)
