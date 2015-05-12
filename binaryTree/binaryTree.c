@@ -130,12 +130,10 @@ void levelTraverse(BiTree root)
     BiTNode* p = NULL;
     int top = 0;
     int beg = 0;
-    int end = 0;
     stack[top++] = root;
-    while(top > beg)
+	int end = top;
+    while(beg < end)
     {
-        beg = top - beg - 1;
-        end = top;
         while(beg < end)
         {
             p = stack[beg++];
@@ -145,7 +143,7 @@ void levelTraverse(BiTree root)
             if(p->rchild)
                 stack[top++] = p->rchild;
         }
-		beg = top;
+		end = top;
     }
 }
 
