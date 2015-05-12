@@ -1,12 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #define MAX 100
-
 typedef struct BiTNode {
     int data;
     struct BiTNode *lchild, *rchild;
 } BiTNode, *BiTree;
-
 BiTNode* stack[MAX];
 
 BiTree createBiTree(void)
@@ -125,6 +123,32 @@ void postOrderTraverse_none_recursive(BiTree root)
     printf("\n");
 }
 
+void levelTraverse(BiTree root)
+{
+    if(root == NULL)
+        return;
+    BiTNode* p = NULL;
+    int top = 0;
+    int beg = 0;
+    int end = 0;
+    stack[top++] = root;
+    while(top > beg)
+    {
+        beg = top - beg - 1;
+        end = top;
+        while(beg < end)
+        {
+            p = stack[beg++];
+            printf("%d ", p->data);
+            if(p->lchild)
+                stack[top++] = p->lchild;
+            if(p->rchild)
+                stack[top++] = p->rchild;
+        }
+		beg = top;
+    }
+}
+
 int main(void)
 {
 
@@ -141,12 +165,14 @@ int main(void)
     printf("The postOrderTraverse is:\n");
     postOrderTraverse(root);
     printf("\n");
-
     printf("The preOrderTraverse with none recursive is:\n");
     preOrderTraverse_none_recursive(root);
     printf("The inOrderTraverse with none recursive is:\n");
     inOrderTraverse_none_recursive(root);
     printf("The postOrderTraverse with none recursive is:\n");
     postOrderTraverse_none_recursive(root);
+    printf("The level traverse for binary tree is:\n");
+    levelTraverse(root);
+    printf("\n");
     return 0;
 }
