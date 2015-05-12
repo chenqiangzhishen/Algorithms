@@ -76,34 +76,34 @@ Node* reverseLinkList(Node *head)
 //just sort the data part of each Node.
 Node* sortLinkList(Node* head)
 {
-	if(head==NULL || head->next==NULL)
-	return head;
-	Node* minNode = NULL;
-	Node* q = NULL;
-	Node* p = head->next;
-	Node* firstNode = p;
-	while(p)
-	{
-		minNode = p;
-		q = p->next;
-		while(q)
-		{
-			if(q->data < minNode->data)
-			{
-				minNode = q;
-			}
-			q = q->next;	
-		}
-		if(minNode->data != p->data)
-		{
-			p->data ^= minNode->data;
-			minNode->data ^= p->data;
-			p->data ^= minNode->data;
-		}
-		p = p->next;
-	}
-	head->next = firstNode;
-	return head;
+    if(head==NULL || head->next==NULL)
+        return head;
+    Node* minNode = NULL;
+    Node* q = NULL;
+    Node* p = head->next;
+    Node* firstNode = p;
+    while(p)
+    {
+        minNode = p;
+        q = p->next;
+        while(q)
+        {
+            if(q->data < minNode->data)
+            {
+                minNode = q;
+            }
+            q = q->next;
+        }
+        if(minNode->data != p->data)
+        {
+            p->data ^= minNode->data;
+            minNode->data ^= p->data;
+            p->data ^= minNode->data;
+        }
+        p = p->next;
+    }
+    head->next = firstNode;
+    return head;
 }
 
 int main(void)
@@ -117,8 +117,8 @@ int main(void)
     printLinkList(linkList);
     printf("The LinkList after reversing is:\n");
     printLinkList(reverseLinkList(linkList));
-	printf("The LinkList after sort is:\n");
-	printLinkList(sortLinkList(linkList));
+    printf("The LinkList after sort is:\n");
+    printLinkList(sortLinkList(linkList));
 
     return 0;
 }
