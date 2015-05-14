@@ -10,3 +10,4 @@ do
 	rm -f $file
 done
 
+exit 0
