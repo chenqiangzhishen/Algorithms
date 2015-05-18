@@ -4,7 +4,9 @@ using namespace std;
 
 void bubbleSort(int data[], int n)
 {
-	int i=0, j=0, temp=0;
+	if(data==NULL || n<=0)
+		return;
+	int i=0, j=0;
 	bool bSwap = true;
 	for(i=0; i<n-1 && bSwap; ++i)
 	{
@@ -13,9 +15,10 @@ void bubbleSort(int data[], int n)
 		{
 			if(data[j]>data[j+1])
 			{
-				temp = data[j];
-				data[j] = data[j+1];
-				data[j+1] = temp;
+				//swap
+				data[j+1] ^= data[j];
+				data[j] ^= data[j+1];
+				data[j+1] ^= data[j];
 				bSwap = true;
 			}
 			

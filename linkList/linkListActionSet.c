@@ -6,6 +6,7 @@ typedef struct LinkList {
     struct LinkList *next;
 } Node;
 
+//add extra head nod.
 Node* createLinkList(int n)
 {
     if(n <= 0)
@@ -56,7 +57,7 @@ void printLinkList(Node *head)
 //LinkList with head node.
 Node* reverseLinkList(Node *head)
 {
-    if(!head || !head->next)
+    if(head==NULL || head->next==NULL)
         return;
     Node *p=NULL, *q=NULL, *r=NULL;
     p = head->next;

@@ -6,7 +6,7 @@ using namespace std;
 //td - temp data, used to store the sorting data
 void merge(int sd[], int td[], int beg, int mid, int end)
 {
-    if(beg<0 || end <0 || beg>=end)
+    if(sd==NULL || td==NULL || beg<0 || end <0 || beg>=end)
         return;
     int i=beg, j=mid+1, k=beg;
     while(i!=mid+1 && j!=end+1)//note the last index
@@ -35,7 +35,7 @@ void merge(int sd[], int td[], int beg, int mid, int end)
 
 void mergeSort(int sd[], int td[], int beg, int end)
 {
-    if(beg<0 || end <0 || beg>=end)
+    if(td==NULL || beg<0 || end <0 || beg>=end)
         return;
     int mid = beg + ((end-beg)>>1);
     mergeSort(sd, td,  beg, mid);

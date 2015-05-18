@@ -11,7 +11,7 @@ int partition(int *data, int low, int high)
             --high;
         data[low] = data[high];
 
-        while(pivotKey > data[low]&& low<high)// don't forget to add the requirment "low<high"
+        while(pivotKey>data[low] && low<high)// don't forget to add the requirment "low<high"
             ++low;
         data[high] = data[low];
     }

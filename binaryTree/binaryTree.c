@@ -20,6 +20,11 @@ BiTree createBiTree(void)
     else
     {
         root = (BiTNode *)malloc(sizeof(BiTNode));
+		if(root == NULL)
+		{
+			printf("malloc error, no more memory \n");
+			return NULL;
+		}
         root->data = data;
         root->lchild = createBiTree();
         root->rchild = createBiTree();
@@ -106,6 +111,7 @@ void postOrderTraverse_none_recursive(BiTree root)
             stack[top++] = root;
             root = root->lchild;
         }
+		//do not use --top here
         root = stack[top -1];
         //if do not have right child or the right child is visited, then visit the parent(root) node.
         if(root->rchild==NULL || visited==root->rchild)
@@ -113,6 +119,7 @@ void postOrderTraverse_none_recursive(BiTree root)
             printf("%d ", root->data);
             visited = root;
             --top;
+			//set root to null to avoid being pushed again in next loop.
             root = NULL;//note that: let the node become NULL
         }
         else
@@ -132,14 +139,14 @@ void levelTraverse(BiTree root)
     int beg = 0;
     stack[top++] = root;
 	int end = top;
-    while(beg < end)
+    while(beg < end)//end is point to the end of last level. 
     {
         while(beg < end)
         {
-            p = stack[beg++];
+            p = stack[beg++];//begin is point to the current root node of current level
             printf("%d ", p->data);
             if(p->lchild)
-                stack[top++] = p->lchild;
+                stack[top++] = p->lchild;//top is point to the end of current level
             if(p->rchild)
                 stack[top++] = p->rchild;
         }
