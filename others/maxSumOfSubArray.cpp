@@ -17,12 +17,12 @@ int getMaxSumOfSubArray(const int arr[], const int len)
         // if current max value less than 0, means that it should be clear to 0 in order to start new calculate.
         if(curMaxVal >= 0)
         {
-        	curMaxVal += arr[i];
+            curMaxVal += arr[i];
         }
-		else
-		{
+        else
+        {
             curMaxVal = arr[i];
-		}
+        }
         if(curMaxVal > maxVal)
         {
             maxVal = curMaxVal;
